@@ -1,0 +1,564 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.example.org/aircraft-simulator#"
+     xml:base="http://www.example.org/aircraft-simulator"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.example.org/aircraft-simulator">
+        <rdfs:label>Aircraft Simulator Diagnostic Ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- xsd:boolean -->
+
+    <rdfs:Datatype rdf:about="xsd:boolean"/>
+    
+
+
+    <!-- xsd:string -->
+
+    <rdfs:Datatype rdf:about="xsd:string"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#addressesFault -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/aircraft-simulator#addressesFault">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#DiagnosticStep"/>
+        <rdfs:range rdf:resource="http://www.example.org/aircraft-simulator#FaultState"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#belongsToPanel -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/aircraft-simulator#belongsToPanel">
+        <owl:inverseOf rdf:resource="http://www.example.org/aircraft-simulator#hasPart"/>
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+        <rdfs:range rdf:resource="http://www.example.org/aircraft-simulator#SimulatorPanel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#hasDisplay -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/aircraft-simulator#hasDisplay">
+        <rdfs:subPropertyOf rdf:resource="http://www.example.org/aircraft-simulator#hasPart"/>
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#SimulatorPanel"/>
+        <rdfs:range rdf:resource="http://www.example.org/aircraft-simulator#DisplayScreen"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#hasFaultState -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/aircraft-simulator#hasFaultState">
+        <rdfs:range rdf:resource="http://www.example.org/aircraft-simulator#FaultState"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/aircraft-simulator#hasPart">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#SimulatorPanel"/>
+        <rdfs:range rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#providesEssentialPower -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/aircraft-simulator#providesEssentialPower">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#BatteryMasterSwitch"/>
+        <rdfs:range rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#providesGroundPower -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/aircraft-simulator#providesGroundPower">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#GroundPower"/>
+        <rdfs:range rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#requiresCannonPlug -->
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/aircraft-simulator#requiresCannonPlug">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+        <rdfs:range rdf:resource="http://www.example.org/aircraft-simulator#CannonPlug"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#cannonPlugConnected -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/aircraft-simulator#cannonPlugConnected">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#CannonPlug"/>
+        <rdfs:range rdf:resource="xsd:boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#isAPUAvailable -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/aircraft-simulator#isAPUAvailable">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#APUGenerator"/>
+        <rdfs:range rdf:resource="xsd:boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#isBacklightingOn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/aircraft-simulator#isBacklightingOn">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+        <rdfs:range rdf:resource="xsd:boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#isEnabled -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/aircraft-simulator#isEnabled">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#GroundPower"/>
+        <rdfs:range rdf:resource="xsd:boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#isEssentialPower -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/aircraft-simulator#isEssentialPower">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#BatteryMasterSwitch"/>
+        <rdfs:range rdf:resource="xsd:boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#isFunctional -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/aircraft-simulator#isFunctional">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+        <rdfs:range rdf:resource="xsd:boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#isGenSwOn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/aircraft-simulator#isGenSwOn">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#APUGenerator"/>
+        <rdfs:range rdf:resource="xsd:boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#isOn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/aircraft-simulator#isOn">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+        <rdfs:range rdf:resource="xsd:boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#isPwrSwOn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/aircraft-simulator#isPwrSwOn">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#APUGenerator"/>
+        <rdfs:range rdf:resource="xsd:boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#isStartSwOn -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/aircraft-simulator#isStartSwOn">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#APUGenerator"/>
+        <rdfs:range rdf:resource="xsd:boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#stepText -->
+
+    <owl:DatatypeProperty rdf:about="http://www.example.org/aircraft-simulator#stepText">
+        <rdfs:domain rdf:resource="http://www.example.org/aircraft-simulator#DiagnosticStep"/>
+        <rdfs:range rdf:resource="xsd:string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#APUGenerator -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#APUGenerator">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/aircraft-simulator#SimulatorPanel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#APU_NotAvailable_State -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#APU_NotAvailable_State">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/aircraft-simulator#FaultState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#BatteryMasterSwitch -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#BatteryMasterSwitch">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#BatteryMaster_Malfunction_State -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#BatteryMaster_Malfunction_State">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/aircraft-simulator#FaultState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#CannonPlug -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#CannonPlug"/>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#Component -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#Component"/>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#DiagnosticStep -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#DiagnosticStep">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label>DiagnosticStep</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#DisplayScreen -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#DisplayScreen">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#ElectricalPanel -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#ElectricalPanel">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/aircraft-simulator#SimulatorPanel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#ElectricalPanel_Broken_State -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#ElectricalPanel_Broken_State">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/aircraft-simulator#FaultState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#FaultState -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#FaultState">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/aircraft-simulator#IOSControlledItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#FuelPump_Indicator_Backlight_Mismatch_State -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#FuelPump_Indicator_Backlight_Mismatch_State">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/aircraft-simulator#FaultState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#Fuel_Panel -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#Fuel_Panel">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/aircraft-simulator#SimulatorPanel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#GroundPower -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#GroundPower">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#IOSControlledItem -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#IOSControlledItem"/>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#SimulatorPanel -->
+
+    <owl:Class rdf:about="http://www.example.org/aircraft-simulator#SimulatorPanel"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#APUGeneratorPanel_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#APUGeneratorPanel_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#APUGenerator"/>
+        <isAPUAvailable rdf:datatype="xsd:boolean">false</isAPUAvailable>
+        <isGenSwOn rdf:datatype="xsd:boolean">true</isGenSwOn>
+        <isPwrSwOn rdf:datatype="xsd:boolean">true</isPwrSwOn>
+        <isStartSwOn rdf:datatype="xsd:boolean">false</isStartSwOn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#APU_Gen_Switch_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#APU_Gen_Switch_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+        <belongsToPanel rdf:resource="http://www.example.org/aircraft-simulator#APUGeneratorPanel_1"/>
+        <hasFaultState rdf:resource="http://www.example.org/aircraft-simulator#APU_NotAvailable_1"/>
+        <requiresCannonPlug rdf:resource="http://www.example.org/aircraft-simulator#CannonPlug_1"/>
+        <isOn rdf:datatype="xsd:boolean">true</isOn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#APU_NotAvailable_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#APU_NotAvailable_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#APU_NotAvailable_State"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#BatteryMasterSwitch_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#BatteryMasterSwitch_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#BatteryMasterSwitch"/>
+        <belongsToPanel rdf:resource="http://www.example.org/aircraft-simulator#ElectricalPanel_1"/>
+        <hasFaultState rdf:resource="http://www.example.org/aircraft-simulator#BatteryMaster_Malfunction_1"/>
+        <providesEssentialPower rdf:resource="http://www.example.org/aircraft-simulator#APU_Gen_Switch_1"/>
+        <providesEssentialPower rdf:resource="http://www.example.org/aircraft-simulator#DisplayScreen_1"/>
+        <providesEssentialPower rdf:resource="http://www.example.org/aircraft-simulator#LeftFuelPumpSwitch_1"/>
+        <providesEssentialPower rdf:resource="http://www.example.org/aircraft-simulator#RightFuelPumpSwitch_1"/>
+        <isEssentialPower rdf:datatype="xsd:boolean">true</isEssentialPower>
+        <isFunctional rdf:datatype="xsd:boolean">true</isFunctional>
+        <isOn rdf:datatype="xsd:boolean">true</isOn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#BatteryMaster_Malfunction_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#BatteryMaster_Malfunction_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#BatteryMaster_Malfunction_State"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#CannonPlug_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#CannonPlug_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#CannonPlug"/>
+        <cannonPlugConnected rdf:datatype="xsd:boolean">true</cannonPlugConnected>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#DisplayScreen_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#DisplayScreen_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#DisplayScreen"/>
+        <belongsToPanel rdf:resource="http://www.example.org/aircraft-simulator#ElectricalPanel_1"/>
+        <isOn rdf:datatype="xsd:boolean">true</isOn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#ElectricalPanel_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#ElectricalPanel_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#ElectricalPanel"/>
+        <hasFaultState rdf:resource="http://www.example.org/aircraft-simulator#ElectricalPanel_Broken_1"/>
+        <hasPart rdf:resource="http://www.example.org/aircraft-simulator#BatteryMasterSwitch_1"/>
+        <hasPart rdf:resource="http://www.example.org/aircraft-simulator#DisplayScreen_1"/>
+        <hasPart rdf:resource="http://www.example.org/aircraft-simulator#GroundPower_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#ElectricalPanel_Broken_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#ElectricalPanel_Broken_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#ElectricalPanel_Broken_State"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#FuelPanel_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#FuelPanel_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#Fuel_Panel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#FuelPump_Indicator_Backlight_Mismatch_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#FuelPump_Indicator_Backlight_Mismatch_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#FuelPump_Indicator_Backlight_Mismatch_State"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#GroundPower_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#GroundPower_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#GroundPower"/>
+        <belongsToPanel rdf:resource="http://www.example.org/aircraft-simulator#ElectricalPanel_1"/>
+        <providesGroundPower rdf:resource="http://www.example.org/aircraft-simulator#APU_Gen_Switch_1"/>
+        <providesGroundPower rdf:resource="http://www.example.org/aircraft-simulator#BatteryMasterSwitch_1"/>
+        <providesGroundPower rdf:resource="http://www.example.org/aircraft-simulator#LeftFuelPumpSwitch_1"/>
+        <providesGroundPower rdf:resource="http://www.example.org/aircraft-simulator#RightFuelPumpSwitch_1"/>
+        <isEnabled rdf:datatype="xsd:boolean">true</isEnabled>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#LeftFuelPumpSwitch_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#LeftFuelPumpSwitch_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+        <belongsToPanel rdf:resource="http://www.example.org/aircraft-simulator#FuelPanel_1"/>
+        <hasFaultState rdf:resource="http://www.example.org/aircraft-simulator#FuelPump_Indicator_Backlight_Mismatch_1"/>
+        <requiresCannonPlug rdf:resource="http://www.example.org/aircraft-simulator#CannonPlug_1"/>
+        <isBacklightingOn rdf:datatype="xsd:boolean">false</isBacklightingOn>
+        <isOn rdf:datatype="xsd:boolean">true</isOn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#RightFuelPumpSwitch_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#RightFuelPumpSwitch_1">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#Component"/>
+        <belongsToPanel rdf:resource="http://www.example.org/aircraft-simulator#FuelPanel_1"/>
+        <requiresCannonPlug rdf:resource="http://www.example.org/aircraft-simulator#CannonPlug_1"/>
+        <isBacklightingOn rdf:datatype="xsd:boolean">true</isBacklightingOn>
+        <isOn rdf:datatype="xsd:boolean">true</isOn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#Step_Check_APU_Fuel_And_Doors -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#Step_Check_APU_Fuel_And_Doors">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#DiagnosticStep"/>
+        <addressesFault rdf:resource="http://www.example.org/aircraft-simulator#APU_NotAvailable_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#Step_Check_Fuel_Pump_Backlighting_Power -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#Step_Check_Fuel_Pump_Backlighting_Power">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#DiagnosticStep"/>
+        <addressesFault rdf:resource="http://www.example.org/aircraft-simulator#FuelPump_Indicator_Backlight_Mismatch_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#Step_Check_Ground_Power_For_ElectricalPanel -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#Step_Check_Ground_Power_For_ElectricalPanel">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#DiagnosticStep"/>
+        <addressesFault rdf:resource="http://www.example.org/aircraft-simulator#ElectricalPanel_Broken_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/aircraft-simulator#Step_Cycle_Battery_Master_And_Check_IOS -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/aircraft-simulator#Step_Cycle_Battery_Master_And_Check_IOS">
+        <rdf:type rdf:resource="http://www.example.org/aircraft-simulator#DiagnosticStep"/>
+        <addressesFault rdf:resource="http://www.example.org/aircraft-simulator#BatteryMaster_Malfunction_1"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
